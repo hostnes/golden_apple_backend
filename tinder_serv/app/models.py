@@ -27,6 +27,7 @@ class Item(models.Model):
     description = models.TextField()
     photo = models.TextField()
     cost = models.FloatField(default=0)
+    amount = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.title
