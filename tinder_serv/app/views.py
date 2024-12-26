@@ -61,3 +61,13 @@ class TestDetailView(APIView):
             return Response(serializer.data)
         except Test.DoesNotExist:
             return Response({"error": "Test not found"}, status=status.HTTP_404_NOT_FOUND)
+
+
+class ItemsListCreateView(generics.ListCreateAPIView):
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializer
+
+
+class ItemDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializer
